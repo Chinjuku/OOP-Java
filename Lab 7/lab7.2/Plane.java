@@ -8,7 +8,8 @@ public class Plane extends Vehicle implements Flyable{
         this(0.0, "", "");
     }
     public Plane(double fuel, String airline, String boeing){
-        super(fuel);
+        //super(fuel);
+        this.fuel = fuel;
         this.airline = airline;
         this.boeing = boeing;
     }
