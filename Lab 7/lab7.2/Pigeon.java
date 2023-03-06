@@ -10,8 +10,8 @@ public class Pigeon extends Bird{
         Pigeon.numberOfPigeon += 1;
     }
     public void eat(String food){
-        if (food == "worm"){ setWeight(getWeight() + 0.5);}
-        else if (food == "seed"){ setWeight(getWeight() + 0.2);}
+        if ("worm".equals(food)){ setWeight(getWeight() + 0.5);}
+        else if ("seed".equals(food)){ setWeight(getWeight() + 0.2);}
         else{System.out.println("Pigeon can eat only worm and seed.");}
     }
     @Override
