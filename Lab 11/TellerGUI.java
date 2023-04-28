@@ -11,7 +11,10 @@ public class TellerGUI implements ActionListener{
     private JButton[] btn;
     private JButton btn3;
     private String[] n={"Deposit", "Withdraw"};
+    private double myBalance, myAmount;
+    private Account account;
     public TellerGUI(){
+        account = new Account(6000, "");
         fr = new JFrame("Teller GUI");
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         p1 = new JPanel();
@@ -19,7 +22,7 @@ public class TellerGUI implements ActionListener{
         p3 = new JPanel();
         p4 = new JPanel();
 
-        fe1 = new JTextField("6000");
+        fe1 = new JTextField(Double.toString(account.getBalance()));
         fe2 = new JTextField();
         fe1.setEditable(false);
 
@@ -60,21 +63,20 @@ public class TellerGUI implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        int myBalance = (int) Double.parseDouble(fe1.getText());
-        int myAmount = (int) Double.parseDouble(fe2.getText());
-        Account account = new Account(myBalance, "");
+        myBalance = Double.parseDouble(fe1.getText());
+        myAmount = Double.parseDouble(fe2.getText());
         String buttonText = ae.getActionCommand();
-        if (buttonText.matches("Deposit")){
-            fe1.setText(   ""+ (myBalance + myAmount));
+        if (buttonText.matches("Deposit")){            
             System.out.println(myAmount);
             account.deposit(myAmount);
+            fe1.setText(Double.toString(account.getBalance()));
         }
         else if (buttonText.matches("Withdraw")){
             if ((myBalance + myAmount) >= 0){
                 account.withdraw(myAmount);
             }
             else{System.out.println("Not enough money");}
-            fe1.setText(Integer.toString(myBalance - myAmount));
+            fe1.setText(Double.toString(account.getBalance()));
         }
     }
 }
