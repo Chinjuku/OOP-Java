@@ -88,7 +88,7 @@ public class StudentView extends JFrame implements ActionListener, WindowListene
     }
     public void saveText(){
         try {
-            FileOutputStream fOut = new FileOutputStream("dataStudent.dat");
+            FileOutputStream fOut = new FileOutputStream("StudentM.dat");
             ObjectOutputStream oout = new ObjectOutputStream(fOut);
             oout.writeObject(s);
             oout.close();
@@ -99,7 +99,7 @@ public class StudentView extends JFrame implements ActionListener, WindowListene
             }
     }
     public Student loadText(){
-        try {FileInputStream fin = new FileInputStream("dataStudent.dat");
+        try {FileInputStream fin = new FileInputStream("StudentM.dat");
             ObjectInputStream in = new ObjectInputStream(fin);
             s = (Student) in.readObject();
             if(s == null){
