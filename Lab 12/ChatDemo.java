@@ -17,6 +17,7 @@ public class ChatDemo extends JFrame implements ActionListener, WindowListener{
     private String txt;
 
     public ChatDemo() {
+        txt = "";
         frame = new JFrame();
         textArea = new JTextArea(20, 45);
         textField = new JTextField(45);
