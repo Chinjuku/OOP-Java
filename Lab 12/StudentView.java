@@ -118,7 +118,7 @@ public class StudentView extends JFrame implements ActionListener, WindowListene
     public void windowClosing(WindowEvent we){
         s.setID(Integer.valueOf(idField.getText()));
         s.setName(nameField.getText());
-        s.setMoney(Integer.valueOf(idField.getText()));
+        s.setMoney(Integer.valueOf(moneyField.getText()));
         saveText();
     }
     @Override
